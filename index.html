@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    <script src='main.js'></script>
+    <title>Magic Menu - CSS - HTML - Javascript</title>
+</head>
+
+<body>
+    <!--Criando o menu usando o https://ionic.io/-->
+    <ul>
+        <li><a href="#">
+                <ion-icon name="home-outline"></ion-icon>
+            </a></li>
+        <li><a href="#">
+                <ion-icon name="person-outline"></ion-icon>
+            </a></li>
+        <li class="active"><a href="#">
+                <ion-icon name="add-circle-outline"></ion-icon>
+            </a></li>
+        <li><a href="#">
+                <ion-icon name="settings-outline"></ion-icon>
+            </a></li>
+        <li><a href="#">
+                <ion-icon name="chatbubble-outline"></ion-icon>
+            </a></li>
+        <div id="marker"></div>
+    </ul>
+
+    <!--importando https://ionic.io/ionicons/usage -->
+    <script script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"> </script>
+    <script script nomodule src="https: // unpkg .com / ionicons @ 5.5.2 / dist / ionicons / ionicons.js "> </script>
+    <script>
+        // script para realizar a transição em linha 
+        let marker = document.querySelector('#marker');
+        let list = document.querySelectorAll('ul li');
+        function moveIndicador(e) {
+            marker.style.left = e.offsetLeft + 'px';
+            marker.style.width = e.offsetWidth + 'px';
+        }
+        list.forEach(link => {
+            link.addEventListener('mousemove', (e) => {
+                moveIndicador(e.target);
+            })
+        })
+
+        // adicionando a class hover nos itens da lista 
+        function actionLink() {
+            list.forEach((item) =>
+                item.classList.remove('active'));
+            this.classList.add('active');
+        }
+        list.forEach((item) =>
+            item.addEventListener('mouseover', actionLink));
+
+    </script>
+</body>
+
+</html>
